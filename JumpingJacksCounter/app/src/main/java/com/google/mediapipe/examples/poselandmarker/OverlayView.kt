@@ -21,10 +21,12 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarker
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarkerResult
+import org.w3c.dom.Text
 import kotlin.math.max
 import kotlin.math.min
 
@@ -45,6 +47,8 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
     init {
         initPaints()
     }
+
+    val c = findViewById<TextView>(R.id.count)
 
     fun clear() {
         results = null
@@ -80,11 +84,12 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
                     //println("O homem está fazendo polichinelo")
                     if(state==0) {
                         counts = counts + 1
+                        c.setText(counts.toString())
+                        println(counts)
                     }
-                    //println(counts)
                     state=1
                     //println(state)
-                    println(counts)
+
                 }
                 else {
                     state=0

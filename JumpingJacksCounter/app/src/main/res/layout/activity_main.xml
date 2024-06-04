@@ -27,6 +27,7 @@
         android:orientation="vertical">
 
         <androidx.fragment.app.FragmentContainerView
+
             android:id="@+id/fragment_container"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
@@ -43,12 +44,19 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="1dp"
             android:background="@color/toolbar_background">
 
-            <ImageView
+            <TextView
+                android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/media_pipe_banner" />
+                android:text="0"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="50sp" />
+
         </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

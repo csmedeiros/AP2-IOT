@@ -18,6 +18,7 @@ package com.google.mediapipe.examples.poselandmarker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             // ignore the reselection
         }
     }
+    val c = findViewById<TextView>(R.id.count)
 
     override fun onBackPressed() {
         finish()
