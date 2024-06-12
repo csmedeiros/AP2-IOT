@@ -23,6 +23,9 @@ import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.mediapipe.examples.poselandmarker.databinding.ActivityMainBinding
+import com.google.mediapipe.examples.poselandmarker.sharedVariable.SharedVariables.resultado
+import com.google.mediapipe.examples.poselandmarker.sharedVariable.SharedVariables.c
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var activityMainBinding: ActivityMainBinding
@@ -40,10 +43,12 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.navigation.setOnNavigationItemReselectedListener {
             // ignore the reselection
         }
-    }
-    val c = findViewById<TextView>(R.id.count)
+        c = findViewById<TextView>(R.id.counter)
+        println(c)
 
+    }
     override fun onBackPressed() {
         finish()
     }
 }
+
