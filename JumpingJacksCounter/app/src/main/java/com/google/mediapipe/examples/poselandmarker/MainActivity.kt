@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.navigation.setOnNavigationItemReselectedListener {
             // ignore the reselection
         }
-        c = findViewById<TextView>(R.id.counter)
+        c = findViewById<TextView>(R.id.count)
         println(c)
 
     }
