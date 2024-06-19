@@ -26,16 +26,18 @@ import androidx.core.content.ContextCompat
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarker
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarkerResult
-import org.w3c.dom.Text
 import kotlin.math.max
 import kotlin.math.min
+import com.google.mediapipe.examples.poselandmarker.sharedVariable.SharedVariables.resultado
+import com.google.mediapipe.examples.poselandmarker.sharedVariable.SharedVariables.c
+
 
 var state: Int = 0
 var counts: Int = 0
 
 class OverlayView(context: Context?, attrs: AttributeSet?) :
-    View(context, attrs) {
 
+    View(context, attrs) {
     private var results: PoseLandmarkerResult? = null
     private var pointPaint = Paint()
     private var linePaint = Paint()
@@ -47,8 +49,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
     init {
         initPaints()
     }
-
-    val c = findViewById<TextView>(R.id.count)
 
     fun clear() {
         results = null
@@ -80,12 +80,12 @@ class OverlayView(context: Context?, attrs: AttributeSet?) :
                         pointPaint
                     )
                 }
+
                 if(landmark[17].y() < landmark[0].y() && landmark[18].y() < landmark[0].y() && (landmark[17].x()-landmark[18].x()) < 0.5 && (landmark[29].x()-landmark[30].x()) > 0.1) {
                     //println("O homem está fazendo polichinelo")
                     if(state==0) {
-                        counts = counts + 1
-                        c.setText(counts.toString())
-                        println(counts)
+                        resultado++
+                        c.text = resultado.toString()
                     }
                     state=1
                     //println(state)
